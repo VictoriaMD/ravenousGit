@@ -15,10 +15,11 @@ class SearchBar extends React.Component {
      location: '',
      sortBy: 'best_match'
    };
-   this.handleSortByChange = this.handleSortByChange.bind(this);
+
    this.handleTermChange = this.handleTermChange.bind(this);
    this.handleLocationChange = this.handleLocationChange.bind(this);
    this.handleSearch = this.handleSearch.bind(this);
+
    this.sortByOptions = {
     'Best Match': 'best_match',
     'Highest Rated': 'rating',
@@ -54,10 +55,14 @@ class SearchBar extends React.Component {
   renderSortByOptions() {
     return Object.keys(sortByOptions).map(sortByOption => {
     let sortByOptionValue = sortByOptions[sortByOption];
-    return <li className={this.getSortByClass(sortByOptionValue)} onClick={this.handleSortByChange.bind(this, sortByOptionValue)} key={sortByOptionValue}>{sortByOption}</li>;
+    return <li className={this.getSortByClass(sortByOptionValue)} 
+    onClick={this.handleSortByChange.bind(this, sortByOptionValue)} 
+    key={sortByOptionValue}>{sortByOption}
+    
+    </li>;
     });   
     } 
-   //Not sure about this.searchYelp step 19
+   
    render() {
    return (
     <div className="SearchBar">
