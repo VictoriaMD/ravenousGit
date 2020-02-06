@@ -14,8 +14,8 @@ class App extends React.Component {
   }
 
   searchYelp(term, location, sortBy) {
-   Yelp.seach(term, location, sortBy).then(businesses => {
-     this.setState({businesses: this.state.businesses});
+   Yelp.search(term, location, sortBy).then(businesses => {
+     this.setState({businesses: []});
    });
   };
 
