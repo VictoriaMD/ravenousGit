@@ -1,25 +1,27 @@
 const apiKey = 'dy8-bQ9GGTgRXkbX_AsBnvCgUl85dnKC5vbPmCRMoCPazDHaX9kzIi70e4v5wAIQC-6kK3GvgOgwtQhrQjmK7q3-9CO_6xCLduA-hbvGyWnuPshPb63PriIRBj48XnYx';
 
  export const Yelp = {
-    //hacerlo de nuevo sin el async await
-    search(term, location, sortBy) {
-         return fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&sort_by=${sortBy}`,
-          { headers: { Autorization: `Bearer ${apiKey}` } }).then(response => { 
-              return response.json();}).then(jsonResponse => {
-                if (jsonResponse.businesses) {
-                     return jsonResponse.businesses.map(business => {
-                      return {
-                              id: business.id,
-                              imageSrc: business.imageSrc,
-                              name: business.name,
-                              address: business.address,
-                              city: business.city,
-                              state: business.state,
-                              zipCode: business.zipCode,
-                              category: business.category,
-                              rating: business.rating,
-                              reviewCount: business.reviewCount
-                      }
-                    });
-                }
-            });
+  search(term, location, sortBy) {
+    return fetch(`https://cors-anywhere.herokuapp.com/https://api.yelp.com/v3/businesses/search?term=${term}&location=${location}&sort_by=${sortBy}`,
+     { headers: { Authorization: `Bearer ${apiKey}`}}).then(response => { 
+         return response.json();}).then(jsonResponse => {
+           if (jsonResponse.businesses) {
+             //borré el return de jsonResponse
+                return jsonResponse.businesses.map(business => {
+                 return business = {
+                         id: business.id,
+                         imageSrc: business.imageSrc,
+                         name: business.name,
+                         address: business.address,
+                         city: business.city,
+                         state: business.state,
+                         zipCode: business.zipCode,
+                         category: business.category,
+                         rating: business.rating,
+                         reviewCount: business.reviewCount
+          }
+        });
+      }
+    })
+   }
+ }
