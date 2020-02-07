@@ -3,7 +3,7 @@ import React from 'react';
 import './App.css';
 import BusinessList from '../BusinessList/BusinessList';
 import SearchBar from '../SearchBar/SearchBar';
-import {Yelp} from '../../util/Yelp';
+import Yelp from '../../util/Yelp';
 
 
 class App extends React.Component {
@@ -14,8 +14,10 @@ class App extends React.Component {
   }
 
   searchYelp(term, location, sortBy) {
-   Yelp.search(term, location, sortBy).then(businesses => {
-     this.setState({businesses: []});
+    //searchYelp instead of search
+   Yelp.searchYelp(term, location, sortBy).then(businesses => {
+     //value of businesses instead of [];
+     this.setState({businesses: businesses});
    });
   };
 
