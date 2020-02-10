@@ -1,15 +1,14 @@
 import React from 'react';
 import './ProgressBar.css';
+import {Progress} from 'antd';
 
-const ProgressBar = (props) => {
-    return(
-        <div className="progress-bar">
-       <Filler />
-        </div>
-    )
-};
-
-const Filler = (props) {
-    return <div className="filler" />
+class ProgressBar extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state: {progress: 0}
+    }
     
-};
+    render() {
+
+    }
+}
